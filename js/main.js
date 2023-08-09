@@ -10,9 +10,6 @@ function cargar() {
     sumarIva() {
       return this.precio * 1.21;
     }
-    /*   vender() {
-        this.disponible = false;
-      } */
   }
 
   var arrayProductos = [];
