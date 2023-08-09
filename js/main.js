@@ -14,17 +14,18 @@ function cargar() {
 
   var arrayProductos = [];
   do {
-    var nuevoProducto = prompt('Ingrese un nombre del producto\n  o ingrese FIN para terminar de agregar productos');
+    var nuevoProducto = prompt('Ingrese el nombre del nuevo producto\n  o ingrese FIN para terminar de agregar productos');
+    nuevoProducto = nuevoProducto.toLowerCase();
     if (nuevoProducto === "fin") {
       break;
     } else {
-      nombreP = nuevoProducto;
+      var nombreP = nuevoProducto;
       var precioP = prompt('Ingrese el precio del producto');
       var cantidadP = prompt('Ingrese la cantidad disponible del producto');
       arrayProductos.push(new Producto(nombreP, precioP, cantidadP));
     }
   }
-  while (nuevoProducto != "fin")
+  while (nuevoProducto !== "fin");
   console.log(arrayProductos);
 
   alert("Productos ingresados:")
@@ -63,7 +64,7 @@ function cargar() {
 
 
   //Ordenar productos por cantidad
-  var ordenadosCantidad = []; //Declaramos el array ordenadosCantidad
+  var ordenadosCantidad = []; 
   ordenadosCantidad = arrayProductos.map(elemento => elemento);
   ordenadosCantidad.sort(function (a, b) {
     return a.cantidad - b.cantidad;
